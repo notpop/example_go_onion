@@ -1,4 +1,5 @@
 package persistence
+
 import (
 	"database/sql"
 	"example_onion/domain/entity"

@@ -3,10 +3,10 @@ package main
 import (
 	"example_onion/application/handler"
 	"example_onion/application/service"
-	"example_onion/infrastructure/persistence"
-	"example_onion/infrastructure/database/mysql"
-	"example_onion/infrastructure/webapi"
 	"example_onion/domain/repository"
+	"example_onion/infrastructure/database/mysql"
+	"example_onion/infrastructure/persistence"
+	"example_onion/infrastructure/webapi"
 	"fmt"
 	"net/http"
 )
