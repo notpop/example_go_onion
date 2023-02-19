@@ -8,3 +8,7 @@ import (
 type Handler interface {
 	Register(r *mux.Router, userService *service.UserService)
 }
+
+type HandlerPackage struct {
+	UserHandler *UserHandler
+}

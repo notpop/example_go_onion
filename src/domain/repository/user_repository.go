@@ -6,17 +6,17 @@ import (
 )
 
 type UserRepository struct {
-	Persistence persistence.UserPersistence
+	persistence persistence.UserPersistence
 }
 
 func (repo *UserRepository) FindByID(id int) (*entity.User, error) {
-	user, err := repo.Persistence.FindByID(id)
+	user, err := repo.persistence.FindByID(id)
 	if err != nil {
 		return nil, err
 	}
 	return user, nil
 }
 
-func NewUserRepository(persistence persistence.UserPersistence) *UserRepository {
-	return &UserRepository{Persistence: persistence}
+func NewUserRepository(persistence persistence.UserPersistence) UserRepository {
+	return UserRepository{persistence: persistence}
 }

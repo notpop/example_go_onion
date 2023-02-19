@@ -3,15 +3,18 @@ package mysql
 import (
 	"database/sql"
 	"fmt"
+	_ "github.com/go-sql-driver/mysql"
 	"log"
+	"os"
 )
 
 type Client struct {
 	db *sql.DB
 }
 
-func NewClient(dataSourceName string) *Client {
-	db, err := sql.Open("mysql", dataSourceName)
+func NewClient() *Client {
+	dataSource := os.Getenv("DATA_SOURCE")
+	db, err := sql.Open("mysql", dataSource)
 	if err != nil {
 		log.Fatalf("failed to connect to database: %v", err)
 	}
