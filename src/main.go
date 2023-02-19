@@ -21,7 +21,7 @@ func main() {
 	userRepository := repository.NewUserRepository(userPersistence)
 	userService := service.NewUserService(userRepository)
 
-	router := webapi.NewRouter(&handler.HandlerPackage{UserHandler: handler.NewUserHandler(userService)}, userService)
+	router := webapi.NewRouter(handler.HandlerPackage{UserHandler: handler.NewUserHandler(userService)}, userService)
 
 	router.PathPrefix("/").Handler(http.FileServer(http.Dir("./static/")))
 
