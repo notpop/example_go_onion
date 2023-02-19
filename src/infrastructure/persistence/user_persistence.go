@@ -14,7 +14,7 @@ type userPersistence struct {
 }
 
 func (p *userPersistence) FindByID(id int) (*entity.User, error) {
-	row := p.db.QueryRow("SELECT id, name, age, first_name, last_name, email FROM users WHERE id = ?", id)
+	row := p.db.QueryRow("SELECT id, name, age, first_name, last_name, email FROM users WHERE id = ? AND is_deleted = false", id)
 	var user entity.User
 	if err := row.Scan(&user.ID, &user.Name, &user.Age, &user.FirstName, &user.LastName, &user.Email); err != nil {
 		return nil, err
